@@ -19,27 +19,26 @@ app.get("/", function (req, res) {
 });
 
 app.get("/api/:date?", function(req, res) {
-  // Initialise Date and JSON data
+  // Initialise default Date and JSON objects
   let date = new Date();
   let dateJson =  {"unix": date.getTime(), "utc": date.toUTCString()};
   
   // Get date parameter from URL
   let dateParam = req.params.date;
 
-  // Atempt to parse and update data if a value was provided for the parameter
+  // Atempt to parse and update data if a value was provided for the date parameter
   if(dateParam){
-    // Reinitialise date object baesd on whether value provided
-    // for parameter was a string or number
+    // Reinitialise Date object pending on whether value provided
+    // for parameter was a string or a number
     date = new Date((isNaN(dateParam) ? dateParam : parseInt(dateParam)));
 
-    // Update JSON object based on wheter or not provided value
-    // was valid
+    // Update JSON object based on whether or not updated Date object is valid
     dateJson = !isNaN(date) ?
       { "unix": date.getTime(), "utc": date.toUTCString() } :
       { "error": "Invalid Date" };
   }
 
-  // Return JSON data
+  // Return JSON object
   res.json(dateJson);
 });
 
