@@ -11,7 +11,7 @@ As part of the [requirements](https://www.freecodecamp.org/learn/back-end-develo
 
 ## Setup
 
-This project uses Node.js and Express in order to run this application. As such, make sure that Node.js is installed and then run the following commands in your terminal, within the project's directory:
+This project uses Node.js and Express in order to run this application. As such, make sure that Node.js and npm are installed and then run the following commands in your terminal, within the project's directory:
 
 ```
 npm install
